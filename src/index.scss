@@ -1,0 +1,49 @@
+// Importing a Google Fonts font
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+// Importing base styles, components and utilities from Tailwind CSS
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Setting box-sizing, margin, and padding for all elements in the document
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// Color and font variables defined in the :root selector
+:root {
+
+    --main-font: 'Rubik', sans-serif;
+
+    --light-text-1:hsl(227, 100%, 96%);
+    --dark-text-1:hsl(227, 100%, 96%);
+
+    --light-text-2:hsl(212, 24%, 26%);
+    --dark-text-2:hsl(227, 100%, 96%);
+
+    --light-bg-1:hsl(238, 40%, 52%);
+    --dark-bg-1:hsl(212, 24%, 26%);
+
+    --light-bg-2:hsl(239, 57%, 85%);
+    --dark-bg-2:hsl(211, 10%, 45%);
+
+}
+
+@each $color in 'light', 'dark' {
+    @each $number in '1','2' {
+        .#{$color}-text-#{$number} {
+            color:var(--#{$color}-text-#{$number});
+        }
+
+        .#{$color}-bg-#{$number} {
+            background-color:var(--#{$color}-bg-#{$number});
+        }
+    }
+}
+
+body {
+    font-family: var(--main-font);
+}
